@@ -20,6 +20,7 @@ const Discord = require('discord.js');
 
 const cache = require('./cache');
 const database = require('./database');
+const tokens = require('./tokens.json');
 
 // Everything operates on IDs, so we can safely rely on partials.
 // This causes reaction events to fire for uncached messages.
@@ -30,8 +31,7 @@ const client = new Discord.Client({
 		Discord.Constants.PartialTypes.REACTION
 	]
 });
-const token_file = process.argv[2] || '/etc/discord/ReactionRoleBot/token';
-const token = fs.readFileSync(token_file).toString().trim();
+const token = tokens.token;
 
 // Map of command names to handling functions. Doubles as a validator.
 const COMMANDS = new Map();
@@ -82,7 +82,7 @@ cmdDef(sayInfo,
 );
 cmdDef(sayHelp,
 	'help', '',
-	'Prints this help text'
+	'Prints this  text'
 );
 
 
@@ -108,13 +108,13 @@ function onReady() {
 
 	// No idea why Discord.js does stuff like this...
 	// https://github.com/discordjs/discord.js/blob/master/src/util/Constants.js#L431
-	const LISTENING = 2;
-	client.user.setPresence({
-		activity: {
-			name: "'help' for commands",
-			type: Discord.Constants.ActivityTypes[LISTENING]
-		}
-	}).catch(logError);
+	// const LISTENING = 2;
+	// client.user.setPresence({
+	// 	activity: {
+	// 		name: "'help' for commands",
+	// 		type: Discord.Constants.ActivityTypes[LISTENING]
+	// 	}
+	// }).catch(logError);
 }
 
 /**
