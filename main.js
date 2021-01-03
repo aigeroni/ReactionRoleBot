@@ -20,7 +20,6 @@ const Discord = require('discord.js');
 
 const cache = require('./cache');
 const database = require('./database');
-const tokens = require('./tokens.json');
 
 // Everything operates on IDs, so we can safely rely on partials.
 // This causes reaction events to fire for uncached messages.
@@ -31,7 +30,7 @@ const client = new Discord.Client({
 		Discord.Constants.PartialTypes.REACTION
 	]
 });
-const token = tokens.token;
+const token = process.env.DISCORD_TOKEN;
 
 // Map of command names to handling functions. Doubles as a validator.
 const COMMANDS = new Map();
@@ -82,7 +81,7 @@ cmdDef(sayInfo,
 );
 cmdDef(sayHelp,
 	'help', '',
-	'Prints this  text'
+	'Prints this help text'
 );
 
 
