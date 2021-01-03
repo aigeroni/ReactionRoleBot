@@ -12,7 +12,6 @@
   "devDependencies": {},
   "scripts": {
     "knex": "node_modules/knex/bin/cli.js",
-    "start-app": "knex migrate:latest && node main.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

@@ -1,1 +1,1 @@
-worker: node start-app
+worker: knex migrate:latest && node main.js
