@@ -35,7 +35,7 @@ module.exports = {
 		client: 'sqlite3',
 		useNullAsDefault: true,
 		connection: {
-			filename: '/srv/discord/rolebot.sqlite3'
+			filename: './prod.sqlite3'
 		}
 	}
 };
