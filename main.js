@@ -30,7 +30,7 @@ const client = new Discord.Client({
 		Discord.Constants.PartialTypes.REACTION
 	]
 });
-const token = "Nzg5Njc5ODIyNTIzMjAzNjQ3.X91kpQ.GGrA1CasXF_LERS2WfUZwS__oVw";
+const token = process.env.DISCORD_TOKEN;
 
 // Map of command names to handling functions. Doubles as a validator.
 const COMMANDS = new Map();
